@@ -1,0 +1,14 @@
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\bin\Debug\netcoreapp3.1\CarSell.exe
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\bin\Debug\netcoreapp3.1\CarSell.deps.json
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\bin\Debug\netcoreapp3.1\CarSell.runtimeconfig.json
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\bin\Debug\netcoreapp3.1\CarSell.runtimeconfig.dev.json
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\bin\Debug\netcoreapp3.1\CarSell.dll
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\bin\Debug\netcoreapp3.1\CarSell.pdb
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\obj\Debug\netcoreapp3.1\CarSell.csproj.AssemblyReference.cache
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\obj\Debug\netcoreapp3.1\CarSell.GeneratedMSBuildEditorConfig.editorconfig
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\obj\Debug\netcoreapp3.1\CarSell.AssemblyInfoInputs.cache
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\obj\Debug\netcoreapp3.1\CarSell.AssemblyInfo.cs
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\obj\Debug\netcoreapp3.1\CarSell.csproj.CoreCompileInputs.cache
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\obj\Debug\netcoreapp3.1\CarSell.dll
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\obj\Debug\netcoreapp3.1\CarSell.pdb
+D:\WIUT\2021-2022_Level5\OOP\1_8\CarSell\CarSell\obj\Debug\netcoreapp3.1\CarSell.genruntimeconfig.cache
