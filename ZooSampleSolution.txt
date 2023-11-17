@@ -1,0 +1,151 @@
+/*
+In this example, the Zoo class acts as a subject that notifies zoo visitors about events (feeding, playing) involving different animals. 
+The Lion and Elephant classes are concrete products, and LionFactory and ElephantFactory are concrete factories. The Zookeeper class performs tasks with animals.
+
+This example demonstrates the Factory Pattern for creating different types of animals and the Observer Pattern for notifying zoo visitors about events in the zoo. 
+Feel free to modify and expand upon this example based on your requirements.
+
+
+ */
+
+using System;
+using System.Collections.Generic;
+
+// Observer Interface
+public interface IZooObserver
+{
+    void Update(string action, Animal animal);
+}
+
+// Concrete Observer
+public class ZooVisitor : IZooObserver
+{
+    public string Name { get; }
+
+    public ZooVisitor(string name)
+    {
+        Name = name;
+    }
+
+    public void Update(string action, Animal animal)
+    {
+        Console.WriteLine($"{Name} observes {action} by {animal.GetType().Name}.");
+    }
+}
+
+// Subject (Observable) Interface
+public interface IZooObservable
+{
+    void AddObserver(IZooObserver observer);
+    void RemoveObserver(IZooObserver observer);
+    void NotifyObservers(string action, Animal animal);
+}
+
+// Concrete Subject (Observable)
+public class Zoo : IZooObservable
+{
+    private List<IZooObserver> observers = new List<IZooObserver>();
+
+    public void AddObserver(IZooObserver observer)
+    {
+        observers.Add(observer);
+    }
+
+    public void RemoveObserver(IZooObserver observer)
+    {
+        observers.Remove(observer);
+    }
+
+    public void NotifyObservers(string action, Animal animal)
+    {
+        foreach (var observer in observers)
+        {
+            observer.Update(action, animal);
+        }
+    }
+}
+
+// Product Interface
+public interface Animal
+{
+    void MakeSound();
+}
+
+// Concrete Products
+public class Lion : Animal
+{
+    public void MakeSound()
+    {
+        Console.WriteLine("Roar!");
+    }
+}
+
+public class Elephant : Animal
+{
+    public void MakeSound()
+    {
+        Console.WriteLine("Trumpet!");
+    }
+}
+
+public class Zookeeper
+{
+    public void PerformTask(Animal animal)
+    {
+        Console.Write($"Zookeeper performs a task with {animal.GetType().Name}: ");
+        animal.MakeSound();
+    }
+}
+
+// Factory Interface
+public interface IAnimalFactory
+{
+    Animal CreateAnimal();
+}
+
+// Concrete Factories
+public class LionFactory : IAnimalFactory
+{
+    public Animal CreateAnimal()
+    {
+        return new Lion();
+    }
+}
+
+public class ElephantFactory : IAnimalFactory
+{
+    public Animal CreateAnimal()
+    {
+        return new Elephant();
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Zoo zoo = new Zoo();
+        ZooVisitor visitor1 = new ZooVisitor("Visitor 1");
+        ZooVisitor visitor2 = new ZooVisitor("Visitor 2");
+
+        zoo.AddObserver(visitor1);
+        zoo.AddObserver(visitor2);
+
+        IAnimalFactory lionFactory = new LionFactory();
+        Animal lion = lionFactory.CreateAnimal();
+        zoo.NotifyObservers("feeding", lion);
+
+        IAnimalFactory elephantFactory = new ElephantFactory();
+        Animal elephant = elephantFactory.CreateAnimal();
+        zoo.NotifyObservers("playing", elephant);
+
+        Zookeeper zookeeper = new Zookeeper();
+        zookeeper.PerformTask(lion);
+        zookeeper.PerformTask(elephant);
+
+        zoo.RemoveObserver(visitor1);
+
+        Console.ReadLine();
+    }
+}
+
