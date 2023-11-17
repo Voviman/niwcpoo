@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+
+// Step 1: Define the Animal Class Hierarchy
+class Animal
+{
+    public string Name { get; set; }
+
+    public Animal(string name)
+    {
+        Name = name;
+    }
+
+    public virtual void MakeSound()
+    {
+        Console.WriteLine("Generic animal sound");
+    }
+}
+
+class Lion : Animal
+{
+    public Lion(string name) : base(name) { }
+
+    public override void MakeSound()
+    {
+        Console.WriteLine("Roar!");
+    }
+}
+
+class Elephant : Animal
+{
+    public Elephant(string name) : base(name) { }
+
+    public override void MakeSound()
+    {
+        Console.WriteLine("Trumpet!");
+    }
+}
+
+// Step 2: Implement the Zoo Class
+class Zoo
+{
+    private List<Animal> animals = new List<Animal>();
+
+    public void AddAnimal(Animal animal)
+    {
+        animals.Add(animal);
+    }
+
+    public void RemoveAnimal(Animal animal)
+    {
+        animals.Remove(animal);
+    }
+
+    public void DisplayAnimals()
+    {
+        Console.WriteLine("Animals in the zoo:");
+        foreach (var animal in animals)
+        {
+            Console.WriteLine($"{animal.Name} says: ");
+            animal.MakeSound();
+        }
+    }
+}
+
+// Step 3: Implement Main Program
+class Program
+{
+    static void Main()
+    {
+        // Step 3: Create an instance of the Zoo
+        Zoo zoo = new Zoo();
+
+        // Step 3: Create instances of different animals and add them to the zoo
+        Lion lion = new Lion("Leo");
+        Elephant elephant = new Elephant("Ellie");
+
+        zoo.AddAnimal(lion);
+        zoo.AddAnimal(elephant);
+
+        // Step 3: Display information about the animals in the zoo
+        zoo.DisplayAnimals();
+
+        Console.ReadLine();
+    }
+}
